@@ -4,76 +4,275 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Explore computer network topologies through interactive diagrams, data transfer simulations and quizzes.">
+
   <title>Network Topology Explorer</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
-<body>
 
-  <header>
-    <h1>🌐 Network Topology Explorer</h1>
-    <p>Learn how computers connect and communicate</p>
+<body>
+  <header class="hero">
+    <nav class="navbar">
+      <a href="#" class="logo">NET<span>WORK</span></a>
+      <a href="#explorer" class="nav-link">Explore Topologies ↗</a>
+    </nav>
+
+    <div class="hero-content">
+      <p class="eyebrow">COMPUTER SCIENCE PROJECT</p>
+      <h1>Network Topology<br><span>Explorer.</span></h1>
+      <p class="hero-description">
+        Discover how computers connect, communicate and transfer data
+        through five different network topologies.
+      </p>
+      <a href="#explorer" class="primary-link">Explore the Network ↓</a>
+    </div>
+
+    <div class="hero-decoration" aria-hidden="true">
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <div class="orbit orbit-three"></div>
+      <div class="orbit-center">NET</div>
+    </div>
   </header>
 
   <main>
-    <section class="intro">
+    <section class="intro section" id="about">
+      <div class="section-label">01 / INTRODUCTION</div>
       <h2>What is Network Topology?</h2>
-      <p>
-        Network topology is the physical or logical arrangement
-        of computers and other devices in a network.
+      <p class="intro-text">
+        Network topology is the physical or logical arrangement of
+        computers, switches and other devices in a network. It defines
+        how devices connect and how data can travel between them.
+      </p>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-number">05</span>
+          <span class="stat-label">Topologies to explore</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-number">01</span>
+          <span class="stat-label">Interactive simulator</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Ways to learn</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="explorer section" id="explorer">
+      <div class="section-label">02 / INTERACTIVE LAB</div>
+      <h2>Explore the Topologies</h2>
+      <p class="section-description">
+        Select a topology to view its network diagram and learn how it works.
+      </p>
+
+      <div class="topology-buttons" id="topology-buttons">
+        <button class="topology-btn active" data-topology="star">01 · Star</button>
+        <button class="topology-btn" data-topology="bus">02 · Bus</button>
+        <button class="topology-btn" data-topology="ring">03 · Ring</button>
+        <button class="topology-btn" data-topology="mesh">04 · Mesh</button>
+        <button class="topology-btn" data-topology="tree">05 · Tree</button>
+      </div>
+
+      <div class="lab-grid">
+        <div class="diagram-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="live-label"><span></span> NETWORK VISUALIZATION</span>
+              <h3 id="diagram-title">Star Topology</h3>
+            </div>
+            <span class="device-count" id="device-count">6 nodes</span>
+          </div>
+
+          <div class="diagram-scroll">
+            <svg id="diagram"
+                 viewBox="0 0 600 360"
+                 role="img"
+                 aria-label="Interactive network topology diagram">
+            </svg>
+          </div>
+
+          <div class="legend">
+            <span><i class="legend-dot computer-dot"></i> Computer</span>
+            <span><i class="legend-dot switch-dot"></i> Switch / Router</span>
+            <span><i class="legend-dot packet-dot"></i> Data packet</span>
+          </div>
+
+          <div class="transfer-box">
+            <div class="transfer-heading">
+              <h3>Send a Data Packet</h3>
+              <span class="simulation-tag">SIMULATION</span>
+            </div>
+
+            <p class="small-description">
+              Choose two computers and watch the packet travel along the network.
+            </p>
+
+            <div class="select-grid">
+              <label>
+                Source computer
+                <select id="source"></select>
+              </label>
+
+              <label>
+                Destination computer
+                <select id="destination"></select>
+              </label>
+            </div>
+
+            <button class="send-button" id="send-data">
+              <span>➤</span> Send Data Packet
+            </button>
+
+            <p id="transfer-status" class="transfer-status" aria-live="polite">
+              Ready to send data.
+            </p>
+          </div>
+        </div>
+
+        <aside class="info-panel">
+          <span class="info-label">TOPOLOGY DETAILS</span>
+          <h3 id="topology-name">Star Topology</h3>
+          <p id="description"></p>
+
+          <div class="info-block">
+            <h4><span class="good-icon">+</span> Advantages</h4>
+            <p id="advantages"></p>
+          </div>
+
+          <div class="info-block">
+            <h4><span class="bad-icon">−</span> Disadvantages</h4>
+            <p id="disadvantages"></p>
+          </div>
+
+          <div class="info-block">
+            <h4><span class="use-icon">↗</span> Real-life uses</h4>
+            <p id="uses"></p>
+          </div>
+
+          <div class="tip-box">
+            <strong>💡 Quick fact</strong>
+            <p id="quick-fact"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="comparison section" id="comparison">
+      <div class="section-label">03 / COMPARISON</div>
+      <h2>Compare Topologies</h2>
+      <p class="section-description">
+        Understand the differences between the five network designs.
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Topology</th>
+              <th>Structure</th>
+              <th>Cost</th>
+              <th>Reliability</th>
+              <th>Common use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Star</td>
+              <td>Central device</td>
+              <td>Medium</td>
+              <td>Good*</td>
+              <td>Computer labs</td>
+            </tr>
+            <tr>
+              <td>Bus</td>
+              <td>Shared backbone</td>
+              <td>Low</td>
+              <td>Low</td>
+              <td>Older LANs</td>
+            </tr>
+            <tr>
+              <td>Ring</td>
+              <td>Closed loop</td>
+              <td>Medium</td>
+              <td>Design-dependent</td>
+              <td>Some industrial networks</td>
+            </tr>
+            <tr>
+              <td>Mesh</td>
+              <td>Multiple paths</td>
+              <td>High</td>
+              <td>High*</td>
+              <td>Critical networks</td>
+            </tr>
+            <tr>
+              <td>Tree</td>
+              <td>Hierarchy</td>
+              <td>Medium–High</td>
+              <td>Design-dependent</td>
+              <td>Large campuses</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="table-note">
+        *Reliability depends on the actual design, number of connections
+        and failure points. Costs are relative estimates.
       </p>
     </section>
 
-    <section class="explorer">
-      <h2>Explore Network Topologies</h2>
-      <p>Click a button to explore a topology.</p>
+    <section class="quiz-section section" id="quiz">
+      <div class="section-label">04 / KNOWLEDGE CHECK</div>
+      <h2>Test Your Knowledge</h2>
+      <p class="section-description">
+        Answer these questions and check how much you have learned.
+      </p>
 
-      <div class="buttons">
-        <button data-topology="star">Star</button>
-        <button data-topology="bus">Bus</button>
-        <button data-topology="ring">Ring</button>
-        <button data-topology="mesh">Mesh</button>
-        <button data-topology="tree">Tree</button>
-      </div>
+      <div class="quiz-card">
+        <div class="quiz-top">
+          <span id="question-number">QUESTION 01 / 05</span>
+          <span id="quiz-progress-text">0% completed</span>
+        </div>
 
-      <div class="diagram-box">
-        <h3 id="diagram-title">Star Topology</h3>
-        <svg id="diagram"
-             viewBox="0 0 600 340"
-             role="img"
-             aria-label="Network topology diagram">
-        </svg>
-        <p class="hint">Select another topology to compare.</p>
-      </div>
+        <div class="progress-track">
+          <div id="quiz-progress" class="progress-fill"></div>
+        </div>
 
-      <div class="details">
-        <h3 id="topology-name">Star Topology</h3>
-        <p id="description"></p>
+        <h3 id="question"></h3>
+        <div id="answers" class="answers"></div>
+        <p id="feedback" aria-live="polite"></p>
 
-        <h4>Advantages</h4>
-        <p id="advantages"></p>
-
-        <h4>Disadvantages</h4>
-        <p id="disadvantages"></p>
-
-        <h4>Real-life uses</h4>
-        <p id="uses"></p>
+        <div class="quiz-footer">
+          <span id="score">Score: 0</span>
+          <button id="next-btn" class="send-button" disabled>
+            Next Question →
+          </button>
+        </div>
       </div>
     </section>
 
-    <section class="quiz">
-      <h2>Test Your Knowledge 🧠</h2>
-      <p id="question"></p>
-      <div id="answers" class="answers"></div>
-      <p id="feedback" aria-live="polite"></p>
-      <button id="next-btn">Next Question →</button>
-      <p id="score"></p>
+    <section class="closing section">
+      <div class="section-label">05 / CONCLUSION</div>
+      <h2>Every connection has a structure.</h2>
+      <p>
+        Choosing the right network topology depends on cost, reliability,
+        scalability and the requirements of the network.
+      </p>
+      <a href="#explorer" class="primary-link">Explore Again ↑</a>
     </section>
   </main>
 
   <footer>
-    <p>Created for our College Computer Science Presentation</p>
+    <p class="footer-logo">NETWORK EXPLORER</p>
+    <p>College Computer Science Presentation</p>
+    <p class="footer-small">Built with HTML, CSS & JavaScript</p>
   </footer>
-
 </body>
 </html>
+
