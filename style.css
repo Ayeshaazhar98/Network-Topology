@@ -1,0 +1,158 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f5fc;
+  color: #202b46;
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(135deg, #172554, #5145cd);
+  color: white;
+  text-align: center;
+  padding: 35px 15px;
+}
+
+header h1 {
+  font-size: clamp(25px, 4vw, 38px);
+  margin-bottom: 8px;
+}
+
+main {
+  width: 92%;
+  max-width: 1000px;
+  margin: 25px auto;
+}
+
+.intro, .explorer, .quiz {
+  background: white;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px #17255412;
+}
+
+h2 {
+  color: #3730a3;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #312e81;
+  transform: translateY(-2px);
+}
+
+button:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.diagram-box {
+  background: #f8faff;
+  border: 1px solid #dbe4ff;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  overflow: hidden;
+}
+
+#diagram {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hint {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.details {
+  margin-top: 22px;
+  padding: 20px;
+  border-left: 5px solid #4f46e5;
+  background: #f8faff;
+  border-radius: 8px;
+}
+
+.details h3 {
+  color: #3730a3;
+  margin-bottom: 8px;
+}
+
+.details h4 {
+  margin-top: 15px;
+  color: #4338ca;
+}
+
+.answers {
+  display: grid;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.answers button {
+  text-align: left;
+  background: #e8edff;
+  color: #202b46;
+}
+
+.answers button:hover {
+  background: #d5ddff;
+}
+
+#feedback, #score {
+  font-weight: bold;
+  margin: 12px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #172554;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  main {
+    width: 95%;
+  }
+
+  .intro, .explorer, .quiz {
+    padding: 16px;
+  }
+
+  .buttons button {
+    flex: 1 1 28%;
+  }
+}

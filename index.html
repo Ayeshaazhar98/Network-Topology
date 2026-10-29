@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Topology Explorer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <h1>🌐 Network Topology Explorer</h1>
+    <p>Learn how computers connect and communicate</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>What is Network Topology?</h2>
+      <p>
+        Network topology is the physical or logical arrangement
+        of computers and other devices in a network.
+      </p>
+    </section>
+
+    <section class="explorer">
+      <h2>Explore Network Topologies</h2>
+      <p>Click a button to explore a topology.</p>
+
+      <div class="buttons">
+        <button data-topology="star">Star</button>
+        <button data-topology="bus">Bus</button>
+        <button data-topology="ring">Ring</button>
+        <button data-topology="mesh">Mesh</button>
+        <button data-topology="tree">Tree</button>
+      </div>
+
+      <div class="diagram-box">
+        <h3 id="diagram-title">Star Topology</h3>
+        <svg id="diagram"
+             viewBox="0 0 600 340"
+             role="img"
+             aria-label="Network topology diagram">
+        </svg>
+        <p class="hint">Select another topology to compare.</p>
+      </div>
+
+      <div class="details">
+        <h3 id="topology-name">Star Topology</h3>
+        <p id="description"></p>
+
+        <h4>Advantages</h4>
+        <p id="advantages"></p>
+
+        <h4>Disadvantages</h4>
+        <p id="disadvantages"></p>
+
+        <h4>Real-life uses</h4>
+        <p id="uses"></p>
+      </div>
+    </section>
+
+    <section class="quiz">
+      <h2>Test Your Knowledge 🧠</h2>
+      <p id="question"></p>
+      <div id="answers" class="answers"></div>
+      <p id="feedback" aria-live="polite"></p>
+      <button id="next-btn">Next Question →</button>
+      <p id="score"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created for our College Computer Science Presentation</p>
+  </footer>
+
+</body>
+</html>
